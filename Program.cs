@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using EducationTrackProject.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<EducationTrackProjectContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("EducationTrackProjectContext") ?? throw new InvalidOperationException("Connection string 'EducationTrackProjectContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
