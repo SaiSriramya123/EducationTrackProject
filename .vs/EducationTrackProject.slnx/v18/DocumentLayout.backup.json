@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\2471877\\source\\repos\\EducationTrackProject\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65ED06B2-EE4B-B413-A3C8-B70D8742DC6C}|EducationTrackProject\\EducationTrackProject.csproj|c:\\users\\2471877\\source\\repos\\educationtrackproject\\educationtrackproject\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65ED06B2-EE4B-B413-A3C8-B70D8742DC6C}|EducationTrackProject\\EducationTrackProject.csproj|solutionrelative:educationtrackproject\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\2471877\\source\\repos\\EducationTrackProject\\EducationTrackProject\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "EducationTrackProject\\Models\\Course.cs",
+              "ToolTip": "C:\\Users\\2471877\\source\\repos\\EducationTrackProject\\EducationTrackProject\\Models\\Course.cs",
+              "RelativeToolTip": "EducationTrackProject\\Models\\Course.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T05:15:20.129Z",
+              "EditorCaption": ""
             }
           ]
         }
