@@ -3,22 +3,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EducationTrackProject.Models
 {
-	//[Table("Module")]
-	public class Module
+	//[Table("Assessment")]
+	public class Assessment
 	{
 		[Key]
-		public string ModuleID { get; set; }
-
+		public string AssessmentID { get; set; }
 		[Required]
+
 		[ForeignKey("Course")]
 		public string CourseID { get; set; }
 		//public Course Course { get; set; }
 
 		[Required]
-		public string Name { get; set; }
+		public string Type { get; set; }
 		[Required]
-		public int SequenceOrder { get; set; }
-		public string LearningObjectives { get; set; }
-		//public ICollection<Content> Contents { get; set; }
+		//[Range(1, 1000)] 
+		public int MaxMarks { get; set; }
+		[Required]
+		public DateTime DueDate { get; set; }
+		[Required]
+		public string Status { get; set; }
 	}
 }
