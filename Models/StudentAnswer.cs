@@ -20,7 +20,7 @@ namespace EducationTrackProject.Models
 		[ForeignKey("Question")]
 		public string QuestionId { get; set; }
 
-		[ForeignKey("Assesment")]
+		[ForeignKey("Assessment")]
 		public string AssessmentId { get; set; }
 
 		[ForeignKey("Student")]
