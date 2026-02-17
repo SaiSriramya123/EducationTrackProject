@@ -12,7 +12,7 @@ namespace EducationTrackProject.Models
 
 		[ForeignKey("Course")]
 		public string CourseID { get; set; }
-		public Course Course { get; set; }
+		//public Course Course { get; set; }
 
 		[Required]
 		public string Type { get; set; }

@@ -35,6 +35,9 @@ namespace EducationTrackProject.Models
             [DataType(DataType.Date)]
             [RegularExpression(@"^\d{4}-\d{2}-\d{2}$", ErrorMessage = "GeneratedDate must be in yyyy-MM-dd format.")]
             public DateTime GeneratedDate { get; set; }
+        }
+
+
     }
 }
 

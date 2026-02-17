@@ -23,6 +23,8 @@ namespace EducationTrackProject.Models
 
 		[ForeignKey("Course")]
 		public string CourseId { get; set; }
+		public virtual Student Student { get; set; }
+		public virtual Course Course { get; set; }
 
 	}
 }

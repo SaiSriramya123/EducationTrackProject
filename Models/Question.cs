@@ -24,7 +24,7 @@ namespace EducationTrackProject.Models
 		[DataType(DataType.Date)]
 		public DateTime createdDate { get; set; }
 
-		[ForeignKey("Assessment")]
-		public string AssessmentId { get; set; }
+		[ForeignKey("Assesment")]
+		public string AssesmentId { get; set; }
 	}
 }
