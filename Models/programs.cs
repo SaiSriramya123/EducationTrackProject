@@ -2,17 +2,18 @@
 
 namespace EducationTrackProject.Models
 {
-    public class program
+    public class programs
     {
         [Key]
-        public int Program_ID { get; set; }
+        public string Program_ID { get; set; }
         [Required]
         public string ProgramName { get; set; }
         [Required]
         public int AcademicYear { get; set; }
         [Required]
         public bool Status { get; set; }
-    }
+		public virtual Course Course { get; set; }
+	}
 }
 
     
