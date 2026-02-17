@@ -16,7 +16,7 @@
 			public string CourseName { get; set; }
 
 			[Required]
-			[ForeignKey("Programs")]
+			[ForeignKey("programs")]
 			public string Program_ID { get; set; }
 
 			public string Description { get; set; }
@@ -28,9 +28,11 @@
 			[Required]
 
 			public DateTime CourseDuration { get; set; }
+		public virtual programs programs { get; set; }
 
 
-		}
+
+	}
 	}
 
 
