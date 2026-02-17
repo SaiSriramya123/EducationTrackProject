@@ -18,8 +18,8 @@ namespace EducationTrackProject.Models
 		[StringLength(500)]
 		public string Feedback { get; set; }
 
-		[ForeignKey("Assesment")]
-		public string AssesmentId { get; set; }
+		[ForeignKey("Assessment")]
+		public string AssessmentId { get; set; }
 
 		[ForeignKey("Student")]
 		public string StudentID { get; set; }
