@@ -11,15 +11,15 @@ namespace EducationTrackProject.Models
 		public int NotificationID { get; set; }
 
 		[Required]
-		[ForeignKey(StudentId)]
+		[ForeignKey(Student)]
 		public int StudentID { get; set; }
 
 		[Required]
-		[ForeignKey(InstructorId)]// Must have an Instructor ID
+		[ForeignKey(Instructor)]// Must have an Instructor ID
 		public int InstructorID { get; set; }
 
 		[Required]
-		[ForeignKey(CoordinatorId)]// Must have a Coordinator ID
+		[ForeignKey(Coordinator)]// Must have a Coordinator ID
 		public int CoordinatorID { get; set; }
 
 
