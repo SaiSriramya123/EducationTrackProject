@@ -28,7 +28,7 @@
 			[Required]
 
 			public DateTime CourseDuration { get; set; }
-		public virtual programs programs { get; set; }
+		public virtual programs programs { get; set; }   
 
 
 
