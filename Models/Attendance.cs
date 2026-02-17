@@ -12,7 +12,7 @@ namespace EducationTrackProject.Models
 		[Required]
 		[ForeignKey("Enrollment")]
 		public string EnrollmentID { get; set; }
-		//public Enrollment Enrollment { get; set; }
+		public Enrollment Enrollment { get; set; }
 
 		[Required]
 		public DateTime SessionDate { get; set; }

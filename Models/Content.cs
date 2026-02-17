@@ -12,7 +12,7 @@ namespace EducationTrackProject.Models
 		[Required]
 		[ForeignKey("Module")]
 		public string ModuleID { get; set; }
-		//public Module Module { get; set; }
+		public Module Module { get; set; }
 
 		[Required]
 		public string ContentType { get; set; }
