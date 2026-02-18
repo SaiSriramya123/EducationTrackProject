@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EducationTrackProject.Models;
+using System.Collections;
 
 namespace EducationTrackProject.Data
 {
@@ -19,5 +20,6 @@ namespace EducationTrackProject.Data
         public DbSet<EducationTrackProject.Models.Content> Content { get; set; } = default!;
         public DbSet<EducationTrackProject.Models.Course> Course { get; set; } = default!;
         public DbSet<EducationTrackProject.Models.Module> Module { get; set; } = default!;
-    }
+		public IEnumerable Enrollment { get; internal set; }
+	}
 }

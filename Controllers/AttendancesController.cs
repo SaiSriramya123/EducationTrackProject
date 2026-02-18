@@ -22,7 +22,11 @@ namespace EducationTrackProject.Controllers
         // GET: Attendances
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Attendance.ToListAsync());
+            var attendances= _context.Attendance
+				.Include(a => a.Enrollment);
+
+			return View(await attendances.ToListAsync());
+			//return View(await _context.Attendance.ToListAsync());
         }
 
         // GET: Attendances/Details/5
@@ -34,6 +38,7 @@ namespace EducationTrackProject.Controllers
             }
 
             var attendance = await _context.Attendance
+                .Include(a => a.Enrollment)
                 .FirstOrDefaultAsync(m => m.AttendanceID == id);
             if (attendance == null)
             {
@@ -46,7 +51,8 @@ namespace EducationTrackProject.Controllers
         // GET: Attendances/Create
         public IActionResult Create()
         {
-            return View();
+			ViewData["EnrollmentID"] = new SelectList(_context.Enrollment, "EnrollmentID", "EnrollmentID");
+			return View();
         }
 
         // POST: Attendances/Create
@@ -54,15 +60,17 @@ namespace EducationTrackProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AttendanceID,EnrollmentID,SessionDate,Mode,Status")] Attendance attendance)
-        {
+		public async Task<IActionResult> Create(Attendance attendance)
+		//public async Task<IActionResult> Create([Bind("AttendanceID,EnrollmentID,SessionDate,Mode,Status")] Attendance attendance)
+		{
             if (ModelState.IsValid)
             {
                 _context.Add(attendance);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(attendance);
+			ViewData["EnrollmentID"] = new SelectList(_context.Enrollment, "EnrollmentID", "EnrollmentID", attendance.EnrollmentID);
+			return View(attendance);
         }
 
         // GET: Attendances/Edit/5
@@ -78,7 +86,9 @@ namespace EducationTrackProject.Controllers
             {
                 return NotFound();
             }
-            return View(attendance);
+			ViewData["EnrollmentID"] = new SelectList(_context.Enrollment, "EnrollmentID", "EnrollmentID", attendance.EnrollmentID);
+
+			return View(attendance);
         }
 
         // POST: Attendances/Edit/5
@@ -86,7 +96,9 @@ namespace EducationTrackProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("AttendanceID,EnrollmentID,SessionDate,Mode,Status")] Attendance attendance)
+		public async Task<IActionResult> Edit(string id, Attendance attendance)
+
+		//public async Task<IActionResult> Edit(string id, [Bind("AttendanceID,EnrollmentID,SessionDate,Mode,Status")] Attendance attendance)
         {
             if (id != attendance.AttendanceID)
             {
@@ -125,6 +137,7 @@ namespace EducationTrackProject.Controllers
             }
 
             var attendance = await _context.Attendance
+                .Include(a=>a.Enrollment)
                 .FirstOrDefaultAsync(m => m.AttendanceID == id);
             if (attendance == null)
             {
@@ -148,7 +161,7 @@ namespace EducationTrackProject.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+         
         private bool AttendanceExists(string id)
         {
             return _context.Attendance.Any(e => e.AttendanceID == id);
