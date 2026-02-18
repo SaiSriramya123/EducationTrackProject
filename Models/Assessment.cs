@@ -19,7 +19,7 @@ namespace EducationTrackProject.Models
 		[RegularExpression(@"^(Assignment|Quiz|Exam)$", ErrorMessage = "Type must be Assignment, Quiz, or Exam.")]
 		public string Type { get; set; }
 		[Required]
-		[Range(1, 1000)] 
+		[Range(1, 100)] 
 		public int MaxMarks { get; set; }
 		[Required]
 		public DateTime DueDate { get; set; }

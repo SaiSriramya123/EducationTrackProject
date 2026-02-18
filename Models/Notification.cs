@@ -11,15 +11,15 @@ namespace EducationTrackProject.Models
 		public int NotificationID { get; set; }
 
 		[Required]
-		[ForeignKey("Student")]
+		//[ForeignKey("Student")]
 		public int StudentID { get; set; }
 
 		[Required]
-		[ForeignKey("Instructor")]// Must have an Instructor ID
+		//[ForeignKey("Instructor")]// Must have an Instructor ID
 		public int InstructorID { get; set; }
 
 		[Required]
-		[ForeignKey("Coordinator")]// Must have a Coordinator ID
+		//[ForeignKey("Coordinator")]// Must have a Coordinator ID
 		public int CoordinatorID { get; set; }
 
 
@@ -41,6 +41,7 @@ namespace EducationTrackProject.Models
 		public DateTime CreatedDate { get; set; }
 		public virtual Instructor Instructor { get; set; }
 		public virtual Coordinator Coordinator { get; set; }
+		public virtual Student Student{ get; set; }
 
 	}
 }

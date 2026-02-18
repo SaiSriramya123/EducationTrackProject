@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace EducationTrackProject.Models
 {
@@ -55,7 +57,7 @@ namespace EducationTrackProject.Models
 		//[AllowedExtensions(new[] { ".pdf", ".doc", ".docx" })]
 		//[MaxFileSize(5 * 1024 * 1024)] // 5 MB
 
-		public IFormFile InstructorResume { get; set; }
+		public byte[] InstructorResume { get; set; }
 
 	}
 }

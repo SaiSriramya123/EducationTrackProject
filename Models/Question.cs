@@ -10,6 +10,10 @@ namespace EducationTrackProject.Models
 		public string QuestionId { get; set; }
 
 		[Required]
+		[RegularExpression(@"^(MCQS|TRUE/FALSE|DESCRIPTION)$", ErrorMessage = "Type must be Mcq's, True/False, Description.")]
+		public string QuestionType { get; set; }
+
+		[Required]
 		[StringLength(500, ErrorMessage = "Question text cannot exceed 500 characters.")]
 		public string QuestionText { get; set; }
 
@@ -24,7 +28,7 @@ namespace EducationTrackProject.Models
 		[DataType(DataType.Date)]
 		public DateTime createdDate { get; set; }
 
-		[ForeignKey("Assesment")]
-		public string AssesmentId { get; set; }
+		[ForeignKey("Assessment")]
+		public string AssessmentId { get; set; }
 	}
 }

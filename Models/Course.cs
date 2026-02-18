@@ -1,38 +1,36 @@
-﻿
-	using System;
-	using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
-	using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 	namespace EducationTrackProject.Models
 	{
-		public class Course
-		{
-			[Key]
-			[Required]
-			public string CourseId { get; set; }
-			[Required]
+	public class Course
+	{
+		[Key]
+		[Required]
+		public string CourseId { get; set; }
 
-			public string CourseName { get; set; }
+		[Required]
+		public string CourseName { get; set; }
 
-			[Required]
-			[ForeignKey("programs")]
-			public string Program_ID { get; set; }
+		[Required]
+		public string Program_ID { get; set; }
 
-			public string Description { get; set; }
-			[Required]
-			public int CreditPoints { get; set; }
-			[Required]
-			public bool CourseStatus { get; set; }
+		[ForeignKey("Program_ID")]
+		public virtual Program Program { get; set; }
 
-			[Required]
+		public string Description { get; set; }
 
-			public DateTime CourseDuration { get; set; }
-		public virtual programs programs { get; set; }   
+		[Required]
+		public int CreditPoints { get; set; }
 
+		[Required]
+		public bool CourseStatus { get; set; }
 
-
+		[Required]
+		public int CourseDuration { get; set; } // clearer than DateTime
 	}
-	}
+}
 
 
+	

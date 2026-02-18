@@ -18,13 +18,14 @@ namespace EducationTrackProject.Models
 		[RegularExpression(@"^(Active|Completed|Dropped)$", ErrorMessage = "Status must be Active, Completed, or Dropped.")]
 		public string Status { get; set; }
 
+		[Required]
+		public int credits { get; set; } = 0;
+
 		[ForeignKey("Student")]
 		public string StudentId { get; set; }
 
 		[ForeignKey("Course")]
 		public string CourseId { get; set; }
-		public virtual Student Student { get; set; }
-		public virtual Course Course { get; set; }
 
 	}
 }

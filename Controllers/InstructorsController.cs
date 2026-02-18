@@ -10,22 +10,22 @@ using EducationTrackProject.Models;
 
 namespace EducationTrackProject.Controllers
 {
-    public class AssessmentsController : Controller
+    public class InstructorsController : Controller
     {
         private readonly EducationTrackProjectContext _context;
 
-        public AssessmentsController(EducationTrackProjectContext context)
+        public InstructorsController(EducationTrackProjectContext context)
         {
             _context = context;
         }
 
-        // GET: Assessments
+        // GET: Instructors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Assessment.ToListAsync());
+            return View(await _context.Instructor.ToListAsync());
         }
 
-        // GET: Assessments/Details/5
+        // GET: Instructors/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace EducationTrackProject.Controllers
                 return NotFound();
             }
 
-            var assessment = await _context.Assessment
-                .FirstOrDefaultAsync(m => m.AssessmentID == id);
-            if (assessment == null)
+            var instructor = await _context.Instructor
+                .FirstOrDefaultAsync(m => m.InstructorID == id);
+            if (instructor == null)
             {
                 return NotFound();
             }
 
-            return View(assessment);
+            return View(instructor);
         }
 
-        // GET: Assessments/Create
+        // GET: Instructors/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Assessments/Create
+        // POST: Instructors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AssessmentID,CourseID,Type,MaxMarks,DueDate,Status")] Assessment assessment)
+        public async Task<IActionResult> Create([Bind("InstructorID,InstructorName,InstructorEmail,InstructorPhone,InstructorQualification,InstructorSkills,InstructorExperience,InstructorJoinDate,InstructorGender,InstructorPassword,InstructorResume")] Instructor instructor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(assessment);
+                _context.Add(instructor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(assessment);
+            return View(instructor);
         }
 
-        // GET: Assessments/Edit/5
+        // GET: Instructors/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace EducationTrackProject.Controllers
                 return NotFound();
             }
 
-            var assessment = await _context.Assessment.FindAsync(id);
-            if (assessment == null)
+            var instructor = await _context.Instructor.FindAsync(id);
+            if (instructor == null)
             {
                 return NotFound();
             }
-            return View(assessment);
+            return View(instructor);
         }
 
-        // POST: Assessments/Edit/5
+        // POST: Instructors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("AssessmentID,CourseID,Type,MaxMarks,DueDate,Status")] Assessment assessment)
+        public async Task<IActionResult> Edit(string id, [Bind("InstructorID,InstructorName,InstructorEmail,InstructorPhone,InstructorQualification,InstructorSkills,InstructorExperience,InstructorJoinDate,InstructorGender,InstructorPassword,InstructorResume")] Instructor instructor)
         {
-            if (id != assessment.AssessmentID)
+            if (id != instructor.InstructorID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace EducationTrackProject.Controllers
             {
                 try
                 {
-                    _context.Update(assessment);
+                    _context.Update(instructor);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AssessmentExists(assessment.AssessmentID))
+                    if (!InstructorExists(instructor.InstructorID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace EducationTrackProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(assessment);
+            return View(instructor);
         }
 
-        // GET: Assessments/Delete/5
+        // GET: Instructors/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace EducationTrackProject.Controllers
                 return NotFound();
             }
 
-            var assessment = await _context.Assessment
-                .FirstOrDefaultAsync(m => m.AssessmentID == id);
-            if (assessment == null)
+            var instructor = await _context.Instructor
+                .FirstOrDefaultAsync(m => m.InstructorID == id);
+            if (instructor == null)
             {
                 return NotFound();
             }
 
-            return View(assessment);
+            return View(instructor);
         }
 
-        // POST: Assessments/Delete/5
+        // POST: Instructors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var assessment = await _context.Assessment.FindAsync(id);
-            if (assessment != null)
+            var instructor = await _context.Instructor.FindAsync(id);
+            if (instructor != null)
             {
-                _context.Assessment.Remove(assessment);
+                _context.Instructor.Remove(instructor);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AssessmentExists(string id)
+        private bool InstructorExists(string id)
         {
-            return _context.Assessment.Any(e => e.AssessmentID == id);
+            return _context.Instructor.Any(e => e.InstructorID == id);
         }
     }
 }

@@ -1,33 +1,33 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EducationTrackProject.Models
 {
-	public class programs
+	public class Program
 	{
 		[Key]
-		[Range(3, 7, ErrorMessage = "program ID must be between 3 and 7.")]
-		public int Program_ID { get; set; }
+		[Required]
+		[StringLength(20, ErrorMessage = "Program ID must be up to 20 characters.")]
+		public string ProgramID { get; set; }  // ✅ string primary key
 
 		[Required]
-		[RegularExpression(@"^[A-Za-z\s]{3,50}$",
-			ErrorMessage = "Program name must be alphabetic and between 3–50 characters.")]
+		[StringLength(50, MinimumLength = 3)]
+		[RegularExpression(@"^[A-Za-z\s]+$", ErrorMessage = "Program name must be alphabetic.")]
 		public string ProgramName { get; set; }
 
 		[Required]
-		[RegularExpression(@"^\d{4}$",
-			ErrorMessage = "Academicyear must be in 4 digits")]
-		public int AcademicYear { get; set; }
+		[RegularExpression(@"^\d{4}$", ErrorMessage = "Academic year must be 4 digits.")]
+		public string AcademicYear { get; set; }  // ✅ string to allow regex
 
-		[RegularExpression(@"^\d{1,10}$",
-			ErrorMessage = "Credits must be a nuumber.")]
+		[Required]
+		[Range(1, 10, ErrorMessage = "Credits must be between 1 and 10.")]
 		public int Credits { get; set; }
 
 		public bool Status { get; set; }
-		public virtual Course Course { get; set; }
-		public virtual Module Module { get; set; }
-		public virtual Attendance Attendance { get; set; }
+
+		// Navigation properties
+		public virtual ICollection<Course> Courses { get; set; }
+		public virtual ICollection<Module> Modules { get; set; }
+		public virtual ICollection<Attendance> Attendances { get; set; }
 	}
 }
-
-
-
