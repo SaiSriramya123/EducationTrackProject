@@ -1,0 +1,89 @@
+﻿@model IEnumerable<EducationTrackProject.Models.Instructor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorQualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorSkills)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorExperience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorJoinDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorResume)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorQualification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorSkills)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorExperience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorJoinDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorResume)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InstructorID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InstructorID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InstructorID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

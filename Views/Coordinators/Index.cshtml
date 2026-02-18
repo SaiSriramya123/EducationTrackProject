@@ -1,0 +1,77 @@
+﻿@model IEnumerable<EducationTrackProject.Models.Coordinator>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorQualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorExperience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorResume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoordinatorPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorQualification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorExperience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorResume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinatorPassword)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CoordinatorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CoordinatorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CoordinatorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

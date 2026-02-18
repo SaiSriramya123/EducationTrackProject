@@ -19,5 +19,14 @@ namespace EducationTrackProject.Data
         public DbSet<EducationTrackProject.Models.Content> Content { get; set; } = default!;
         public DbSet<EducationTrackProject.Models.Course> Course { get; set; } = default!;
         public DbSet<EducationTrackProject.Models.Module> Module { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Notification> Notification { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Instructor> Instructor { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Coordinator> Coordinator { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Student> Student { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.AcademicReport> AcademicReport { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.StudentAnswer> StudentAnswer { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Enrollment> Enrollment { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Performance> Performance { get; set; } = default!;
+        public DbSet<EducationTrackProject.Models.Question> Question { get; set; } = default!;
     }
 }
